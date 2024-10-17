@@ -8,10 +8,23 @@
 import Foundation
 import UIKit
 
-class MainTabController: UIViewController{
+class MainTabController: UITabBarController{
+    //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.green
+        configureViewControllers()
+    }
+    
+    //MARK: COnfigure UI
+    
+    private func configureViewControllers(){
+        let feed = FeedController()
+        let search = SearchController()
+        let post = PostController()
+        let notification = NotificationController()
+        let profile = ProfileController()
+        
+        viewControllers = [feed, search, post, notification, profile]
     }
 }
