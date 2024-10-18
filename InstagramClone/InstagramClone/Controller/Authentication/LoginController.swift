@@ -10,6 +10,8 @@ import UIKit
 class LoginController: UIViewController{
 
     //MARK: Properties
+    private var viewModel = LoginViewModel()
+    
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "ic_logo"))
         iv.contentMode = .scaleAspectFill
@@ -20,6 +22,7 @@ class LoginController: UIViewController{
     private let emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Email Address")
         tf.keyboardType = .emailAddress
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -27,6 +30,7 @@ class LoginController: UIViewController{
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -35,11 +39,11 @@ class LoginController: UIViewController{
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue.withAlphaComponent(0.8)
+        button.backgroundColor = .systemBlue.withAlphaComponent(0.6)
         button.layer.cornerRadius = 10
         button.setHeight(40)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        button.isEnabled = true
+        button.isEnabled = false
         button.addTarget(self, action: #selector(onTapLogin), for: .touchUpInside)
         
         return button
@@ -98,6 +102,21 @@ class LoginController: UIViewController{
     private func onTapRegister(){
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc
+    private func onTextChanged(sender: UITextField){
+        if sender == emailTextField{
+            print("text email: \(sender.text ?? "" )")
+            viewModel.email = sender.text
+        } else {
+            print("text password: \(sender.text ?? "" )")
+            viewModel.password = sender.text
+        }
+        
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.isEnabled = viewModel.isValidForm
+
     }
 
 }
