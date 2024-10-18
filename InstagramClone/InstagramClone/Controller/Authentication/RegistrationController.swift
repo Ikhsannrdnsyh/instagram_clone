@@ -10,6 +10,7 @@ import UIKit
 class RegistrationController: UIViewController{
     //MARK: Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private let photoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -105,7 +106,11 @@ class RegistrationController: UIViewController{
     //MARK: Actions
     @objc
     private func onTapPhoto(){
-        print("on Tap Login")
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
     }
     
     @objc
@@ -135,11 +140,28 @@ class RegistrationController: UIViewController{
     }
 }
 
+//MARK: FormViewModel
 extension RegistrationController: FormViewModel{
     func updateForm() {
         signUpButton.backgroundColor = viewModel.buttonBackgroundColor
         signUpButton.isEnabled = viewModel.isValidForm
     }
-    
-    
+}
+
+//MARK: UIImagePickerControllerDelegate
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        profileImage = image
+        
+        photoButton.contentMode = .scaleAspectFit
+        photoButton.clipsToBounds = true
+        photoButton.layer.cornerRadius = photoButton.frame.width / 2
+        photoButton.layer.masksToBounds = true
+        photoButton.layer.borderColor = UIColor.systemBlue.withAlphaComponent(0.5).cgColor
+        photoButton.layer.borderWidth = 2
+        photoButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 }
