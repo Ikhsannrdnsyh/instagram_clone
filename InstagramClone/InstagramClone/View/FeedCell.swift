@@ -32,6 +32,69 @@ class FeedCell: UICollectionViewCell{
         return button
     }()
     
+    private let postImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        iv.isUserInteractionEnabled = true
+        iv.image = UIImage(systemName: "person.fill")
+        
+        return iv
+    }()
+    
+    private let likeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(onTapLike), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private let commentButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "message"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(onTapComment), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private let shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(onTapShare), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private let likesLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onTapLikes))
+        label.addGestureRecognizer(tap)
+        
+        return label
+    }()
+    
+    private let captionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .black
+        
+        return label
+    }()
+    
+    private let timeStampLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .systemGray
+        
+        return label
+    }()
+    
     //MARK: Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +117,29 @@ class FeedCell: UICollectionViewCell{
         
         addSubview(usernameButton)
         usernameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
+        
+        addSubview(postImageView)
+        postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
+        postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        
+        let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        
+        addSubview(stackView)
+        stackView.anchor(top: postImageView.bottomAnchor, left: leftAnchor ,paddingLeft: 8, width: 120, height: 50)
+        
+        addSubview(likesLabel)
+        likesLabel.anchor(top: likeButton.bottomAnchor, left: leftAnchor, paddingLeft: 16, paddingBottom: 4)
+        likesLabel.text = "200 likes"
+        
+        addSubview(captionLabel)
+        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingLeft: 16, paddingBottom: 4)
+        captionLabel.text = "Caption for this image"
+        
+        addSubview(timeStampLabel)
+        timeStampLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingLeft: 16)
+        timeStampLabel.text = "4 days ago"
     }
     
     //MARK: Actions
@@ -61,4 +147,26 @@ class FeedCell: UICollectionViewCell{
     func onTapUsername(){
         print("On tap username")
     }
+    
+    @objc
+    func onTapLike(){
+        print("On tap like")
+    }
+    
+    @objc
+    func onTapComment(){
+        print("On tap comment")
+    }
+    
+    @objc
+    func onTapShare(){
+        print("On tap share")
+    }
+    
+    @objc
+    func onTapLikes(){
+        print("On tap likes")
+    }
+    
+    
 }
