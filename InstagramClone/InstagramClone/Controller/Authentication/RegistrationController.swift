@@ -9,6 +9,8 @@ import UIKit
 
 class RegistrationController: UIViewController{
     //MARK: Properties
+    private var viewModel = RegistrationViewModel()
+    
     private let photoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
@@ -20,6 +22,7 @@ class RegistrationController: UIViewController{
     private let emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Email Address")
         tf.keyboardType = .emailAddress
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -27,6 +30,7 @@ class RegistrationController: UIViewController{
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -34,6 +38,7 @@ class RegistrationController: UIViewController{
     private let fullnameTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Fullname")
         tf.keyboardType = .default
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -41,6 +46,7 @@ class RegistrationController: UIViewController{
     private let usernameTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Username")
         tf.keyboardType = .default
+        tf.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
         
         return tf
     }()
@@ -111,4 +117,29 @@ class RegistrationController: UIViewController{
     private func onTapSignIn(){
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc
+    private func onTextChanged(sender: UITextField){
+        if sender == emailTextField{
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        }else if sender == fullnameTextField {
+            viewModel.fullName = sender.text
+        }else if sender == usernameTextField {
+            viewModel.username = sender.text
+        }
+        updateForm()
+        
+        
+    }
+}
+
+extension RegistrationController: FormViewModel{
+    func updateForm() {
+        signUpButton.backgroundColor = viewModel.buttonBackgroundColor
+        signUpButton.isEnabled = viewModel.isValidForm
+    }
+    
+    
 }

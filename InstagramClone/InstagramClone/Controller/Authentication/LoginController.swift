@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginController: UIViewController{
-
+    
     //MARK: Properties
     private var viewModel = LoginViewModel()
     
@@ -123,7 +123,7 @@ class LoginController: UIViewController{
             navigationController.navigationBar.isHidden = true
             navigationController.navigationBar.barStyle = .black
         }
-
+        
         
         view.addSubview(iconImage)
         iconImage.centerX(inView: view)
@@ -173,17 +173,20 @@ class LoginController: UIViewController{
     @objc
     private func onTextChanged(sender: UITextField){
         if sender == emailTextField{
-            print("text email: \(sender.text ?? "" )")
             viewModel.email = sender.text
         } else {
-            print("text password: \(sender.text ?? "" )")
             viewModel.password = sender.text
         }
         
+        updateForm()
+    }
+}
+
+extension LoginController: FormViewModel{
+    func updateForm() {
         loginButton.backgroundColor = viewModel.buttonBackgroundColor
         loginButton.isEnabled = viewModel.isValidForm
-
     }
     
-
+    
 }
