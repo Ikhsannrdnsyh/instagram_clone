@@ -96,7 +96,8 @@ class LoginController: UIViewController{
     
     @objc
     private func onTapRegister(){
-        print("onTap Regsiter")
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 
 }
