@@ -57,6 +57,56 @@ class LoginController: UIViewController{
         return button
     }()
     
+    private let leftLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = UIColor.systemGray
+        line.setDimensions(height: 0.5, width: 132)
+        
+        return line
+    }()
+    
+    private let rightLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = UIColor.systemGray
+        line.setDimensions(height: 0.5, width: 132)
+        
+        return line
+    }()
+    
+    private let orLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.lightGray
+        label.text = "or"
+        
+        return label
+    }()
+    
+    private let appleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Continue with Apple", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.setHeight(40)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(onTapLoginApple), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private let googleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.setHeight(40)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(onTapLoginGoogle), for: .touchUpInside)
+        
+        return button
+    }()
+    
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +130,13 @@ class LoginController: UIViewController{
         iconImage.setDimensions(height: 30, width: 100)
         iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 40)
         
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        let divStack = UIStackView(arrangedSubviews: [leftLine, orLabel, rightLine])
+        divStack.axis = .horizontal
+        divStack.spacing = 8
+        divStack.alignment = .center
+        divStack.distribution = .equalCentering
+        
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, divStack, appleButton, googleButton])
         stack.axis = .vertical
         stack.spacing = 20
         
@@ -96,6 +152,16 @@ class LoginController: UIViewController{
     @objc
     private func onTapLogin(){
         print("on Tap Login")
+    }
+    
+    @objc
+    private func onTapLoginApple(){
+        print("on Tap Login Apple")
+    }
+    
+    @objc
+    private func onTapLoginGoogle(){
+        print("on Tap Login Google")
     }
     
     @objc
@@ -118,5 +184,6 @@ class LoginController: UIViewController{
         loginButton.isEnabled = viewModel.isValidForm
 
     }
+    
 
 }
