@@ -28,6 +28,7 @@
 		01D2B5832CC2C39B006C6B63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B56F2CC2C39B006C6B63 /* SceneDelegate.swift */; };
 		01D2B5852CC537A1006C6B63 /* ImageUploaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5842CC537A1006C6B63 /* ImageUploaderService.swift */; };
 		01D2B5872CC53944006C6B63 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5862CC53944006C6B63 /* AuthService.swift */; };
+		01D2B5892CC53C7E006C6B63 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5882CC53C7E006C6B63 /* FirebaseReference.swift */; };
 		746395591A70B1E82AAD7AD9 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B3A47E0660850D9F86BB6C /* Pods_InstagramClone.framework */; };
 		A7D347F953DA564A7E041227 /* Pods_InstagramClone_InstagramCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EC9D1290B1E3EACFE07109 /* Pods_InstagramClone_InstagramCloneUITests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		01D2B56F2CC2C39B006C6B63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01D2B5842CC537A1006C6B63 /* ImageUploaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploaderService.swift; sourceTree = "<group>"; };
 		01D2B5862CC53944006C6B63 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		01D2B5882CC53C7E006C6B63 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		01D8860B2CC1656300D5B277 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D886212CC1656600D5B277 /* InstagramCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D8862B2CC1656600D5B277 /* InstagramCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 			children = (
 				01D2B5842CC537A1006C6B63 /* ImageUploaderService.swift */,
 				01D2B5862CC53944006C6B63 /* AuthService.swift */,
+				01D2B5882CC53C7E006C6B63 /* FirebaseReference.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				01D2B5782CC2C39B006C6B63 /* FeedController.swift in Sources */,
 				01D2B5792CC2C39B006C6B63 /* MainTabController.swift in Sources */,
 				01D2B57A2CC2C39B006C6B63 /* NotificationController.swift in Sources */,
+				01D2B5892CC53C7E006C6B63 /* FirebaseReference.swift in Sources */,
 				01D2B57B2CC2C39B006C6B63 /* PostController.swift in Sources */,
 				01D2B57C2CC2C39B006C6B63 /* ProfileController.swift in Sources */,
 				01D2B57D2CC2C39B006C6B63 /* SearchController.swift in Sources */,
