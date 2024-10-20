@@ -168,17 +168,16 @@ class LoginController: UIViewController{
         GIDSignIn.sharedInstance.configuration = config
         
         // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
             guard error == nil else {
-                print("DEBUG: Error Google Sign In \(error?.localizedDescription)")
+                print("DEBUG: Error Google Sign In", error?.localizedDescription ?? "")
                 return
             }
             
             guard let user = result?.user,
                   let idToken = user.idToken?.tokenString
             else {
-                
-                print("DEBUG: Error Google Sign In \(error?.localizedDescription)")
+                print("DEBUG: Error Google Sign In Result")
                 return
             }
             
@@ -186,9 +185,7 @@ class LoginController: UIViewController{
                                                            accessToken: user.accessToken.tokenString)
             
             // Login to Firebase Auth
-            AuthService.shared.registerGoogleUser(withCredential: credential) { error in
-                
-            }
+            AuthService.shared.registerGoogleUser(withCredential: credential) 
         }
     }
     

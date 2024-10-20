@@ -35,45 +35,37 @@ class AuthService{
                 
                 guard let id = result?.user.uid else { return }
                 
-                var data: [String : Any] = ["email": credential.email, "fullname": credential.fullname, "profileImage": imageUrl, "uid": id, "username": credential.username]
+                let data: [String : Any] = ["email": credential.email, "fullname": credential.fullname, "profileImage": imageUrl, "uid": id, "username": credential.username]
                 
                 FirebaseReference.getReference(.User).document(id).setData(data, completion: completion)
             }
         }
     }
     
-    func registerGoogleUser(withCredential credential: AuthCredential, completion: @escaping(Error?) -> Void) {
+    func registerGoogleUser(withCredential credential: AuthCredential) {
         //
         do{
             try Auth.auth().signOut()
         }catch let error as NSError {
-            print("Error Logout")
+            print("DEBUG: Failed to sign Out with Google \(error.localizedDescription)")
         }
         
         Auth.auth().signIn(with: credential) { result, error in
             if let error = error {
-                print("DEBUG: Failed to sign In with Google ")
+                print("DEBUG: Failed to sign In with Google \(error.localizedDescription)")
                 return
             }
             
-            let currentUser = Auth.auth().currentUser
             let gCurrentUser = GIDSignIn.sharedInstance.currentUser
             
             guard let uid = result?.user.uid else { return }
             guard let profile = gCurrentUser?.profile else { return }
             
 //            "ikhsan@mail.com" --> "ikhsan"
-            let data: [String : Any] = ["email": profile.email, "fullname": profile.name, "profileImage": profile.imageURL(withDimension: 200)?.absoluteString, "uid": uid, "username": extractUsername(from: profile.email) ?? profile.email]
+            let data: [String : Any] = ["email": profile.email, "fullname": profile.name, "profileImage": profile.imageURL(withDimension: 200)?.absoluteString ?? "", "uid": uid, "username": extractUsername(from: profile.email) ?? profile.email]
             
-            FirebaseReference.getReference(.User).document(uid).setData(data, completion: completion)
+            FirebaseReference.getReference(.User).document(uid).setData(data, completion: nil)
         }
     }
 }
 
-func extractUsername(from email: String) -> String? {
-    let component = email.components(separatedBy: "@")
-    guard component.count > 1 else{
-        return nil
-    }
-    return component.first
-}
