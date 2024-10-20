@@ -128,7 +128,7 @@ class RegistrationController: UIViewController{
                 print("DEBUG: failed to register User \(error.localizedDescription)")
             }
             
-            print("Success Register")
+            self.dismiss(animated: true)
         }
     }
     

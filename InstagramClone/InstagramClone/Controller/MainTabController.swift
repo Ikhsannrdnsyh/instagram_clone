@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class MainTabController: UITabBarController{
     //MARK: Life cycle
@@ -14,6 +15,7 @@ class MainTabController: UITabBarController{
         super.viewDidLoad()
         
         configureViewControllers()
+        fetchIsUserLoggedIn()
     }
     
     //MARK: Configure UI
@@ -39,5 +41,17 @@ class MainTabController: UITabBarController{
         nav.navigationBar.tintColor = .black
         
         return nav
+    }
+    
+    //MARK: API
+    func fetchIsUserLoggedIn() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
     }
 }

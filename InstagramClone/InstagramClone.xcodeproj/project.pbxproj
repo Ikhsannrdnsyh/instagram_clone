@@ -10,8 +10,6 @@
 		00D02750BBD19FD95F54CA89 /* Pods_InstagramCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74198252E7DF36EF3505CDE /* Pods_InstagramCloneTests.framework */; };
 		01D2B5712CC2C39B006C6B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B5682CC2C39B006C6B63 /* Assets.xcassets */; };
 		01D2B5722CC2C39B006C6B63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B5692CC2C39B006C6B63 /* GoogleService-Info.plist */; };
-		01D2B5742CC2C39B006C6B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B56C2CC2C39B006C6B63 /* LaunchScreen.storyboard */; };
-		01D2B5752CC2C39B006C6B63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B56E2CC2C39B006C6B63 /* Main.storyboard */; };
 		01D2B5762CC2C39B006C6B63 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5552CC2C39B006C6B63 /* LoginController.swift */; };
 		01D2B5772CC2C39B006C6B63 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5562CC2C39B006C6B63 /* RegistrationController.swift */; };
 		01D2B5782CC2C39B006C6B63 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5582CC2C39B006C6B63 /* FeedController.swift */; };
@@ -68,8 +66,6 @@
 		01D2B5682CC2C39B006C6B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01D2B5692CC2C39B006C6B63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01D2B56A2CC2C39B006C6B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01D2B56B2CC2C39B006C6B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		01D2B56D2CC2C39B006C6B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01D2B56F2CC2C39B006C6B63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01D2B5842CC537A1006C6B63 /* ImageUploaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploaderService.swift; sourceTree = "<group>"; };
 		01D2B5862CC53944006C6B63 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -196,8 +192,6 @@
 				01D2B5682CC2C39B006C6B63 /* Assets.xcassets */,
 				01D2B5692CC2C39B006C6B63 /* GoogleService-Info.plist */,
 				01D2B56A2CC2C39B006C6B63 /* Info.plist */,
-				01D2B56C2CC2C39B006C6B63 /* LaunchScreen.storyboard */,
-				01D2B56E2CC2C39B006C6B63 /* Main.storyboard */,
 				01D2B56F2CC2C39B006C6B63 /* SceneDelegate.swift */,
 			);
 			path = InstagramClone;
@@ -374,8 +368,6 @@
 			files = (
 				01D2B5712CC2C39B006C6B63 /* Assets.xcassets in Resources */,
 				01D2B5722CC2C39B006C6B63 /* GoogleService-Info.plist in Resources */,
-				01D2B5742CC2C39B006C6B63 /* LaunchScreen.storyboard in Resources */,
-				01D2B5752CC2C39B006C6B63 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,25 +545,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		01D2B56C2CC2C39B006C6B63 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01D2B56B2CC2C39B006C6B63 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		01D2B56E2CC2C39B006C6B63 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01D2B56D2CC2C39B006C6B63 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		01D886352CC1656600D5B277 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -586,7 +559,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstagramClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -616,7 +589,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstagramClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;

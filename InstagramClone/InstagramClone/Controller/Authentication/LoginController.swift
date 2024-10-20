@@ -10,7 +10,7 @@ import GoogleSignIn
 import FirebaseCore
 import FirebaseAuth
 
-class LoginController: UIViewController{
+class LoginController: UIViewController {
     
     //MARK: Properties
     private var viewModel = LoginViewModel()
@@ -151,7 +151,16 @@ class LoginController: UIViewController{
     //MARK: Actions
     @objc
     private func onTapLogin(){
-        print("on Tap Login")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.shared.loginUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+            }
+            
+            self.dismiss(animated: true)
+        }
     }
     
     @objc
@@ -185,7 +194,13 @@ class LoginController: UIViewController{
                                                            accessToken: user.accessToken.tokenString)
             
             // Login to Firebase Auth
-            AuthService.shared.registerGoogleUser(withCredential: credential) 
+            AuthService.shared.registerGoogleUser(withCredential: credential) { error in
+                if let error = error{
+                    print("DEBUG: failed to register User \(error.localizedDescription)")
+                }
+                
+                self.dismiss(animated: true)
+            }
         }
     }
     
