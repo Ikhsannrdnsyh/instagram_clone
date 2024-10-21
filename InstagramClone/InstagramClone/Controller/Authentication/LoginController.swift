@@ -14,6 +14,7 @@ class LoginController: UIViewController {
     
     //MARK: Properties
     private var viewModel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "ic_logo"))
@@ -158,8 +159,7 @@ class LoginController: UIViewController {
             if let error = error {
                 print("DEBUG: Failed to log user in \(error.localizedDescription)")
             }
-            
-            self.dismiss(animated: true)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
@@ -199,7 +199,7 @@ class LoginController: UIViewController {
                     print("DEBUG: failed to register User \(error.localizedDescription)")
                 }
                 
-                self.dismiss(animated: true)
+                self.delegate?.authenticationDidComplete()
             }
         }
     }
@@ -207,6 +207,7 @@ class LoginController: UIViewController {
     @objc
     private func onTapRegister(){
         let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     

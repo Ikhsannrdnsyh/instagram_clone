@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00D02750BBD19FD95F54CA89 /* Pods_InstagramCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74198252E7DF36EF3505CDE /* Pods_InstagramCloneTests.framework */; };
+		01317DC12CC64254004DFCD7 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DC02CC64254004DFCD7 /* ProfileCell.swift */; };
+		01317DC32CC64261004DFCD7 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DC22CC64261004DFCD7 /* ProfileHeader.swift */; };
+		01317DC52CC6883B004DFCD7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DC42CC6883B004DFCD7 /* UserService.swift */; };
+		01317DC72CC689DA004DFCD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DC62CC689DA004DFCD7 /* User.swift */; };
+		01317DC92CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DC82CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift */; };
+		01317DCB2CC6924C004DFCD7 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DCA2CC6924C004DFCD7 /* AuthenticationDelegate.swift */; };
 		01D2B5712CC2C39B006C6B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B5682CC2C39B006C6B63 /* Assets.xcassets */; };
 		01D2B5722CC2C39B006C6B63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D2B5692CC2C39B006C6B63 /* GoogleService-Info.plist */; };
 		01D2B5762CC2C39B006C6B63 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B5552CC2C39B006C6B63 /* LoginController.swift */; };
@@ -50,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01317DC02CC64254004DFCD7 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		01317DC22CC64261004DFCD7 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		01317DC42CC6883B004DFCD7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		01317DC62CC689DA004DFCD7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		01317DC82CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		01317DCA2CC6924C004DFCD7 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		01D2B5552CC2C39B006C6B63 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		01D2B5562CC2C39B006C6B63 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		01D2B5582CC2C39B006C6B63 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
@@ -113,12 +125,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01317DBF2CC64246004DFCD7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				01317DC02CC64254004DFCD7 /* ProfileCell.swift */,
+				01317DC22CC64261004DFCD7 /* ProfileHeader.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		01D2B5542CC2C39B006C6B63 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				01D2B5842CC537A1006C6B63 /* ImageUploaderService.swift */,
 				01D2B5862CC53944006C6B63 /* AuthService.swift */,
 				01D2B5882CC53C7E006C6B63 /* FirebaseReference.swift */,
+				01317DC42CC6883B004DFCD7 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -128,6 +150,7 @@
 			children = (
 				01D2B5552CC2C39B006C6B63 /* LoginController.swift */,
 				01D2B5562CC2C39B006C6B63 /* RegistrationController.swift */,
+				01317DCA2CC6924C004DFCD7 /* AuthenticationDelegate.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -149,6 +172,7 @@
 		01D2B55F2CC2C39B006C6B63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01317DC62CC689DA004DFCD7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +189,7 @@
 		01D2B5642CC2C39B006C6B63 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01317DBF2CC64246004DFCD7 /* Profile */,
 				01D2B5622CC2C39B006C6B63 /* CustomTextField.swift */,
 				01D2B5632CC2C39B006C6B63 /* FeedCell.swift */,
 			);
@@ -175,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				01D2B5652CC2C39B006C6B63 /* AuthenticationViewModel.swift */,
+				01317DC82CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -497,19 +523,25 @@
 			files = (
 				01D2B5762CC2C39B006C6B63 /* LoginController.swift in Sources */,
 				01D2B5772CC2C39B006C6B63 /* RegistrationController.swift in Sources */,
+				01317DCB2CC6924C004DFCD7 /* AuthenticationDelegate.swift in Sources */,
 				01D2B5782CC2C39B006C6B63 /* FeedController.swift in Sources */,
 				01D2B5792CC2C39B006C6B63 /* MainTabController.swift in Sources */,
+				01317DC32CC64261004DFCD7 /* ProfileHeader.swift in Sources */,
 				01D2B57A2CC2C39B006C6B63 /* NotificationController.swift in Sources */,
 				01D2B5892CC53C7E006C6B63 /* FirebaseReference.swift in Sources */,
 				01D2B57B2CC2C39B006C6B63 /* PostController.swift in Sources */,
 				01D2B57C2CC2C39B006C6B63 /* ProfileController.swift in Sources */,
 				01D2B58B2CC54F8C006C6B63 /* StringUtil.swift in Sources */,
+				01317DC72CC689DA004DFCD7 /* User.swift in Sources */,
 				01D2B57D2CC2C39B006C6B63 /* SearchController.swift in Sources */,
+				01317DC92CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift in Sources */,
 				01D2B57E2CC2C39B006C6B63 /* Extensions.swift in Sources */,
 				01D2B57F2CC2C39B006C6B63 /* CustomTextField.swift in Sources */,
 				01D2B5802CC2C39B006C6B63 /* FeedCell.swift in Sources */,
+				01317DC52CC6883B004DFCD7 /* UserService.swift in Sources */,
 				01D2B5812CC2C39B006C6B63 /* AuthenticationViewModel.swift in Sources */,
 				01D2B5822CC2C39B006C6B63 /* AppDelegate.swift in Sources */,
+				01317DC12CC64254004DFCD7 /* ProfileCell.swift in Sources */,
 				01D2B5832CC2C39B006C6B63 /* SceneDelegate.swift in Sources */,
 				01D2B5852CC537A1006C6B63 /* ImageUploaderService.swift in Sources */,
 				01D2B5872CC53944006C6B63 /* AuthService.swift in Sources */,
