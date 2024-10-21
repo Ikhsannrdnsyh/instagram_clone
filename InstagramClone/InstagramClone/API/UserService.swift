@@ -22,4 +22,13 @@ class UserService{
         }
     }
     
+    func fetchUsers(completion: @escaping([User]) -> Void){
+        FirebaseReference.getReference(.User).getDocuments { snapshot, error in
+            guard let snapshot = snapshot else { return }
+            
+            let users = snapshot.documents.map({ User(dictionary: $0.data()) })
+            completion(users)
+        }
+    }
+    
 }

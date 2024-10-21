@@ -9,6 +9,13 @@ import UIKit
 
 class UserCell: UITableViewCell{
     //MARK: Properties
+    var user: User?{
+        didSet {
+            usernameLabel.text = user?.username
+            fullnameLabel.text = user?.fullname
+        }
+    }
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -23,17 +30,17 @@ class UserCell: UITableViewCell{
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .systemGray5
-        label.text = "Full Name"
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.text = "username"
         
         return label
     }()
     
     private let fullnameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "username"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .lightGray
+        label.text = "Full Name"
         
         return label
     }()
