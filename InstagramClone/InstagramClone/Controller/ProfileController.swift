@@ -7,13 +7,31 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class ProfileController: UICollectionViewController {
+    //MARK: Vars
+    var user: User? {
+        didSet {
+            navigationItem.title = user?.username
+        }
+    }
+    
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ConfigureUI()
+        fetchUser()
+    }
+    
+    //MARK: API
+    private func fetchUser(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(withUid: uid) { user in
+            self.user = user
+            print("User in profile controller \(user)")
+        }
     }
     
     //MARK: Configure UI
