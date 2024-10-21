@@ -19,5 +19,4 @@ struct User {
         self.username = dictionary["username"] as? String ?? ""
         self.uid = dictionary["uid"] as? String ?? ""
     }
-    
 }
