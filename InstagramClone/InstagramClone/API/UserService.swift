@@ -42,8 +42,12 @@ class UserService{
         }
     }
     
-    func unFollow(){
+    func unFollow(uid: String, completion: @escaping(FirestoreCompletion)){
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
         
+        FirebaseReference.getReference(.Following).document(currentId).collection("user-following").document(uid).delete { error in
+            FirebaseReference.getReference(.Follower).document(uid).collection("user-followers").document(currentId).delete(completion: completion)
+        }
     }
     
 }
