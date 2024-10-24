@@ -22,4 +22,20 @@ struct ProfileHeaderViewModel {
         return URL(string: user.profileImage)
     }
     
+    var followButtonBackgroundColor: UIColor {
+        return user.isCurrentUser ? .systemGray5 : .systemBlue
+    }
+    
+    var followButtonTextColor: UIColor {
+        return user.isCurrentUser ? .black : .white
+    }
+    
+    var followButtonText: String {
+        if user.isCurrentUser {
+            return " Edit Profile"
+        }
+        
+        return user.isFollowed ? "Following" : "Follow"
+    }
+    
 }

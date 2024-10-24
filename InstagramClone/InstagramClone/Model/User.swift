@@ -5,12 +5,20 @@
 //  Created by Mochamad Ikhsan Nurdiansyah on 21/10/24.
 //
 
+import FirebaseAuth
+
 struct User {
     let email: String
     let fullname: String
     let profileImage: String
     let username: String
     let uid: String
+    
+    var isFollowed = false
+    
+    var isCurrentUser: Bool {
+        return Auth.auth().currentUser?.uid == uid
+    }
     
     init(dictionary: [String : Any]) {
         self.email = dictionary["email"] as? String ?? ""

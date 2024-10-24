@@ -8,11 +8,18 @@
 import UIKit
 import SDWebImage
 
+
+protocol ProfileHeaderDelegate : AnyObject {
+    func header(_ header: ProfileHeader, onTapButtonFor user: User)
+}
+
 class ProfileHeader: UICollectionReusableView {
     //MARK: Properties
     var viewModel: ProfileHeaderViewModel? {
         didSet { setData() }
     }
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -116,7 +123,7 @@ class ProfileHeader: UICollectionReusableView {
         nameLabel.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 16)
         
         addSubview(editProfileButton)
-        editProfileButton.anchor(top: nameLabel.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 16, paddingLeft: 16)
+        editProfileButton.anchor(top: nameLabel.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 16, paddingLeft: 16, paddingRight: 16)
         
         let labelStack = UIStackView(arrangedSubviews: [postLabel, followerLabel, followingLabel])
         labelStack.distribution = .fillEqually
@@ -137,13 +144,18 @@ class ProfileHeader: UICollectionReusableView {
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         
+        editProfileButton.setTitle(viewModel.followButtonText, for: .normal)
+        editProfileButton.backgroundColor = viewModel.followButtonBackgroundColor
+        editProfileButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
+        
     }
     
     
     //MARK: Actions
     @objc
     func onTapEditProfile(){
-        
+        guard let viewModel = viewModel else { return }
+        delegate?.header(self, onTapButtonFor: viewModel.user)
     }
     
     @objc
