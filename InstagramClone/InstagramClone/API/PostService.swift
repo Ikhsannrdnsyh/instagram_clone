@@ -24,8 +24,8 @@ class PostService {
         }
     }
     
-    func fecthPost(completion: @escaping([Post]) -> Void){
-        FirebaseReference.getReference(.Post).getDocuments { snapshot, error in
+    func fecthPosts(completion: @escaping([Post]) -> Void){
+        FirebaseReference.getReference(.Post).order(by: "timestamp", descending: true).getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
             
             let posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
