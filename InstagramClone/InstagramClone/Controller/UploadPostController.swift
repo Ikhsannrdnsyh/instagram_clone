@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 protocol UploadPostControllerDelegate: AnyObject {
     func didFinishUploadPost(_ controller: UploadPostController)
@@ -98,6 +99,7 @@ class UploadPostController: UIViewController {
         guard let user = currentUser else { return }
         
         PostService.shared.postAnImage(caption: caption, image: image, user: user) { error in
+            ProgressHUD.dismiss()
             if let error = error {
                 print("DEBUG: Failed to upload post, error:  \(error.localizedDescription)")
                 return
