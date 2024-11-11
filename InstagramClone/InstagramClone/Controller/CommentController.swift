@@ -11,7 +11,7 @@ private let reuseIdentifier = "CommentCell"
 
 class CommentController: UICollectionViewController {
     //MARK: Properties
-    var post: Post?
+    private let post: Post
     
     private lazy var commentInputView: CustomInputAccesoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
@@ -21,7 +21,7 @@ class CommentController: UICollectionViewController {
         return cv
     }()
     
-    init(post: Post? = nil) {
+    init(post: Post) {
         self.post = post
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -94,7 +94,13 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
 //MARK: CustomInputAccesoryViewDelegate
 extension CommentController: CustomInputAccesoryViewDelegate {
     func inputView(_ inputView: CustomInputAccesoryView, uploadText text: String) {
-        print("DEBUG: text Comment \(text)")
-        inputView.clearInputText()
+        guard let tab = tabBarController as? MainTabController else { return }
+        guard let currentUser = tab.user else { return }
+        
+        CommentService.shared.uploadComment(comment: text, post: post, user: currentUser) { error in
+            inputView.clearInputText()
+            print("DEBUG: Success add comment")
+        }
+        
     }
 }
