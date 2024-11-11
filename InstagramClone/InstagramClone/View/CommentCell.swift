@@ -9,7 +9,9 @@ import UIKit
 
 class CommentCell: UICollectionViewCell {
     //MARK: Properties
-    
+    var comment: Comment? {
+        didSet { setData() }
+    }
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -55,6 +57,17 @@ class CommentCell: UICollectionViewCell {
         addSubview(commentLabel)
         commentLabel.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         commentLabel.anchor(right: rightAnchor, paddingRight: 16)
+    }
+    
+    private func setData(){
+        guard let comment = comment else { return }
+        
+        profileImageView.sd_setImage(with: URL(string: comment.profileImage))
+        
+        let attrString = NSMutableAttributedString(string: "\(comment.username) ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
+        attrString.append(NSAttributedString(string: comment.comment, attributes: [.font: UIFont.systemFont(ofSize: 14)]))
+        
+        commentLabel.attributedText = attrString
     }
     
     

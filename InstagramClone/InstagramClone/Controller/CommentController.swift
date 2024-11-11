@@ -12,6 +12,7 @@ private let reuseIdentifier = "CommentCell"
 class CommentController: UICollectionViewController {
     //MARK: Properties
     private let post: Post
+    private var comments = [Comment]()
     
     private lazy var commentInputView: CustomInputAccesoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
@@ -44,6 +45,7 @@ class CommentController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchComments()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,19 +69,26 @@ class CommentController: UICollectionViewController {
         
     }
     
-    //MARK: Actions
+    //MARK: API
+    private func fetchComments(){
+        CommentService.shared.fetchComments(forPost: post.postId) { comments in
+            self.comments = comments
+            self.collectionView.reloadData()
+        }
+    }
     
 }
 
 //MARK: UICollectionViewDataSource
 extension CommentController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return comments.count
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CommentCell
+        cell.comment = comments[indexPath.row]
         return cell
     }
 }
