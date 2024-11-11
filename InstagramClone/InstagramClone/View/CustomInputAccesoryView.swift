@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol CustomInputAccesoryViewDelegate: AnyObject {
+    func inputView(_ inputView: CustomInputAccesoryView, uploadText text: String)
+}
+
 class CustomInputAccesoryView: UIView{
     //MARK: Properties
+    weak var delegate: CustomInputAccesoryViewDelegate?
+    
     private var commentTextView: InputTextView = {
         let tv = InputTextView()
         tv.placeholderText = " Enter a comment"
@@ -65,7 +71,12 @@ class CustomInputAccesoryView: UIView{
     //MARK: Actions
     @objc
     func onTapPost(){
-        print("onTapPost")
+        delegate?.inputView(self, uploadText: commentTextView.text)
+    }
+    
+    func clearInputText(){
+        commentTextView.text = nil
+        commentTextView.placeholderLabel.isHidden = false
     }
     
 }

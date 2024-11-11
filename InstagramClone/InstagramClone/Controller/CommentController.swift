@@ -16,6 +16,7 @@ class CommentController: UICollectionViewController {
     private lazy var commentInputView: CustomInputAccesoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         let cv = CustomInputAccesoryView(frame: frame)
+        cv.delegate = self
         
         return cv
     }()
@@ -60,6 +61,10 @@ class CommentController: UICollectionViewController {
         navigationItem.title = "Comments"
         collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .interactive
+        
     }
     
     //MARK: Actions
@@ -83,5 +88,13 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = 52.0
         return CGSize(width: view.frame.width, height: height)
+    }
+}
+
+//MARK: CustomInputAccesoryViewDelegate
+extension CommentController: CustomInputAccesoryViewDelegate {
+    func inputView(_ inputView: CustomInputAccesoryView, uploadText text: String) {
+        print("DEBUG: text Comment \(text)")
+        inputView.clearInputText()
     }
 }
