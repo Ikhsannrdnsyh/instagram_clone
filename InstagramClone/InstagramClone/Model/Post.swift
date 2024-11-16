@@ -18,6 +18,8 @@ struct Post{
     let ownerProfileImage: String
     let ownerUsername: String
     let timestamp: Timestamp
+    var didLike: Bool = false
+    
     
     init(postId: String, dictionary: [String: Any]) {
         self.postId = postId
