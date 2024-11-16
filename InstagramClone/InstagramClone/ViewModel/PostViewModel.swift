@@ -33,7 +33,20 @@ struct PostViewModel{
     }
     
     var likesText: String {
-        return "\(likes) likes"
+        if post.likes != 1 {
+            return "\(likes) likes"
+        } else {
+            return "\(likes) like"
+        }
+    }
+    
+    var likesButtonTintColor: UIColor {
+        return post.didLike ? .red : .black
+    }
+    
+    var likesButtonImage: UIImage? {
+        let image = post.didLike ? "heart.fill" : "heart"
+        return UIImage(systemName: image)
     }
     
     var timestampText: String?{
