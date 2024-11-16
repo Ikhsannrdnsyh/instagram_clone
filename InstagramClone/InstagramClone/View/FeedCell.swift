@@ -10,6 +10,8 @@ import UIKit
 
 protocol FeedCellDelegate: AnyObject {
     func call(_ cell: FeedCell, showCommentsFor post: Post)
+    func call(_ cell: FeedCell, didLike post: Post)
+    
 }
 
 class FeedCell: UICollectionViewCell{
@@ -51,9 +53,8 @@ class FeedCell: UICollectionViewCell{
         return iv
     }()
     
-    private let likeButton: UIButton = {
+    let likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(onTapLike), for: .touchUpInside)
         
@@ -158,6 +159,8 @@ class FeedCell: UICollectionViewCell{
         captionLabel.text = viewModel.caption
         postImageView.sd_setImage(with: viewModel.imageUrl)
         likesLabel.text = viewModel.likesText
+        likeButton.tintColor = viewModel.likesButtonTintColor
+        likeButton.setImage(viewModel.likesButtonImage, for: .normal)
         timeStampLabel.text = viewModel.timestampText
         
     }
@@ -170,7 +173,9 @@ class FeedCell: UICollectionViewCell{
     
     @objc
     func onTapLike(){
-        print("On tap like")
+        guard let viewModel = viewModel else { return }
+        
+        delegate?.call(self, didLike: viewModel.post)
     }
     
     @objc
