@@ -50,6 +50,7 @@ class PostService {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         //Update likes counter + 1
+        
         FirebaseReference.getReference(.Post).document(post.postId).updateData(["likes" : post.likes + 1 ])
         
         //add new colletion to post
@@ -57,5 +58,20 @@ class PostService {
             // Add new Collection to user
             FirebaseReference.getReference(.User).document(uid).collection("likes").document(post.postId).setData([:], completion: completion)
         }
+    }
+    
+    func unlikePost(post: Post, completion: @escaping(FirestoreCompletion)){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        //Update likes counter - 1
+        //guard post.likes > 0 else { return }
+        FirebaseReference.getReference(.Post).document(post.postId).updateData(["likes" : post.likes - 1 ])
+        
+        // Delete a collection in Post
+        FirebaseReference.getReference(.Post).document(post.postId).collection("likes").document(uid).delete { _ in
+            // Delete likes collection in User
+            FirebaseReference.getReference(.User).document(uid).collection("likes").document(post.postId).delete(completion: completion)
+        }
+        
     }
 }
