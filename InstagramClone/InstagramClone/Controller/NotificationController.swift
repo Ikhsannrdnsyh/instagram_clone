@@ -12,13 +12,15 @@ private let reuseIdentifier = "NotificationCell"
 
 class NotificationController: UITableViewController {
     //MARK: Properties
+    private var notifications = [Notification]() {
+        didSet{ tableView.reloadData() }
+    }
     
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
-        
+        fetchNotifications()
     }
     
     //MARK: Config UI
@@ -30,12 +32,19 @@ class NotificationController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
+    
+    //MARK: API
+    private func fetchNotifications(){
+        NotificationService.shared.fetchNotifications { notifications in
+            self.notifications = notifications
+        }
+    }
 }
 
 //MARK: UITableViewDataSource
 extension NotificationController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return notifications.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +52,6 @@ extension NotificationController {
         return cell
     }
 }
-
 
 //MARK: UITAbleViewDelegate
 extension NotificationController {

@@ -151,6 +151,5 @@ extension FeedController: FeedCellDelegate {
             }
         }
     }
-    
 }
 
