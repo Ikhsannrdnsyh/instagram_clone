@@ -34,6 +34,7 @@ struct Notification {
     let postImage: String?
     let type: NotificationType
     let timestamp: Timestamp
+    var userIsFollowed: Bool
     
     init(dictionary: [String : Any]) {
         self.id = dictionary["id"] as? String ?? ""
@@ -43,6 +44,7 @@ struct Notification {
         self.postId = dictionary["postId"] as? String ?? ""
         self.postImage = dictionary["postImage"] as? String ?? ""
         self.type = NotificationType(rawValue: dictionary["type"] as? Int ?? 0) ?? .like
-        self.timestamp = dictionary["postId"] as? Timestamp ?? Timestamp(date: Date())
+        self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+        self.userIsFollowed = false
     }
 }
