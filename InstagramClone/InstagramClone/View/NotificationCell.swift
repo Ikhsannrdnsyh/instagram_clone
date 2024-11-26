@@ -127,7 +127,12 @@ class NotificationCell: UITableViewCell {
         print("onTapFollow")
         guard let viewModel = viewModel else { return }
         
-        delegate?.call(self, wantsToFollow: viewModel.notification.uid)
+        if viewModel.notification.userIsFollowed {
+            delegate?.call(self, wantsToUnfollow: viewModel.notification.uid)
+        } else {
+            delegate?.call(self, wantsToFollow: viewModel.notification.uid)
+        }
+        
     }
     
     @objc
