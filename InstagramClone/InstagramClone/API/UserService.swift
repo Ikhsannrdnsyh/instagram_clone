@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 typealias FirestoreCompletion = (Error?) -> Void
 
@@ -71,6 +72,44 @@ class UserService{
                 }
             }
         }
+    }
+    
+    func updateProfileImage(forUser user: User, image: UIImage, completion: @escaping(String?, Error?) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Storage.storage().reference(forURL: user.profileImage).delete(completion: nil)
+        
+        ImageUploaderService.shared.uploadImage(image: image) { profileImageUrl in
+            let data = ["profileImageUrl": profileImageUrl]
+            
+            FirebaseReference.getReference(.User).document(uid).updateData(data) { error in
+                if let errpr = error {
+                    completion(nil, error)
+                    return
+                }
+                FirebaseReference.getReference(.Post).whereField("ownerUid", isEqualTo: user.uid).getDocuments { snapshot, error in
+                    guard let documents = snapshot?.documents else { return }
+                    let data = ["ownerImageUrl" : profileImageUrl]
+                    documents.forEach({
+                        FirebaseReference.getReference(.Post).document($0.documentID).updateData(data) })
+                }
+                
+                // need update data
+                completion(profileImageUrl, nil)
+            }
+        }
+    }
+    
+    func saveUserData(user: User, completion: @escaping(FirestoreCompletion)) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let data: [String: Any] = ["email": user.email,
+                                   "fullname": user.fullname,
+                                   "profileImageUrl": user.profileImage,
+                                   "uid": uid,
+                                   "username": user.username]
+        
+        FirebaseReference.getReference(.User).document(uid).setData(data, completion: completion)
     }
     
 }
