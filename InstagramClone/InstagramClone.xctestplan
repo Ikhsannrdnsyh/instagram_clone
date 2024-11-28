@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "734895EC-BE01-42FC-8E85-C565C45F8349",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTags" : {
+        "includeXCTests" : true
+      },
+      "target" : {
+        "containerPath" : "container:InstagramClone.xcodeproj",
+        "identifier" : "01D886202CC1656600D5B277",
+        "name" : "InstagramCloneTests"
+      }
+    }
+  ],
+  "version" : 1
+}
