@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='InstagramCloneTests.xctest' tests='4' failures='0'>
+  <testsuite name='InstagramCloneTests.AuthenticationViewModelTests' tests='2' failures='0'>
+    <testcase classname='InstagramCloneTests.AuthenticationViewModelTests' name='testLoginViewModel_isInvalidForm' time='0.001'/>
+    <testcase classname='InstagramCloneTests.AuthenticationViewModelTests' name='testLoginViewModel_isValidForm' time='0.000'/>
+  </testsuite>
+  <testsuite name='InstagramCloneTests.ModelInitTest' tests='2' failures='0'>
+    <testcase classname='InstagramCloneTests.ModelInitTest' name='testNotificationInit' time='0.001'/>
+    <testcase classname='InstagramCloneTests.ModelInitTest' name='testUserInit' time='0.003'/>
+  </testsuite>
+</testsuites>

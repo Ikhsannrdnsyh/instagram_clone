@@ -30,14 +30,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../InstagramClone.xctestplan"
-            default = "YES">
+            reference = "container:../InstagramClone.xctestplan">
          </TestPlanReference>
          <TestPlanReference
             reference = "container:TestPlan.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:InstagramClone.xctestplan">
+            reference = "container:InstagramClone.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
