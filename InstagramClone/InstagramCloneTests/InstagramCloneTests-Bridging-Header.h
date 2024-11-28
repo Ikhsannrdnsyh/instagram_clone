@@ -1,4 +1,12 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
+//  InstagramCloneTests-Bridging-Header.h
+//  InstagramClone
+//
+//  Created by Mochamad Ikhsan Nurdiansyah on 29/11/24.
 //
 
+#ifndef InstagramCloneTests_Bridging_Header_h
+#define InstagramCloneTests_Bridging_Header_h
+
+
+#endif /* InstagramCloneTests_Bridging_Header_h */
