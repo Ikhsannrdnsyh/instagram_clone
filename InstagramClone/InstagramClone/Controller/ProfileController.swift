@@ -63,6 +63,7 @@ class ProfileController: UICollectionViewController {
         self.navigationItem.title = user.username
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: "ProfileCell")
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader")
+<<<<<<< HEAD
     }
     
     func showEditProfileController(){
@@ -71,6 +72,9 @@ class ProfileController: UICollectionViewController {
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
+=======
+
+>>>>>>> main
     }
 }
 
@@ -132,7 +136,11 @@ extension ProfileController: ProfileHeaderDelegate {
         guard let currentUser = tab.user else { return }
         
         if user.isCurrentUser {
+<<<<<<< HEAD
             showEditProfileController()
+=======
+            print("DEBUG: Edit Profile")
+>>>>>>> main
         } else {
             if user.isFollowed{
                 UserService.shared.unFollow(uid: user.uid) { error in
@@ -152,6 +160,7 @@ extension ProfileController: ProfileHeaderDelegate {
         }
     }
 }
+<<<<<<< HEAD
 
 extension ProfileController: EditProfileControllerDelegate {
     func controller(_ controller: EditProfileController, wantsToUpdate user: User){
@@ -159,3 +168,5 @@ extension ProfileController: EditProfileControllerDelegate {
         self.user = user
     }
 }
+=======
+>>>>>>> main
