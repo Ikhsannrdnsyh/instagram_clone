@@ -9,9 +9,15 @@ import FirebaseAuth
 
 struct User {
     let email: String
+<<<<<<< HEAD
+    var fullname: String
+    var profileImage: String
+    var username: String
+=======
     let fullname: String
     let profileImage: String
     let username: String
+>>>>>>> main
     let uid: String
     
     var stats: UserStats!
