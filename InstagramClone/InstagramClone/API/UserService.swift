@@ -7,10 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseAuth
-<<<<<<< HEAD
 import FirebaseStorage
-=======
->>>>>>> main
 
 typealias FirestoreCompletion = (Error?) -> Void
 
@@ -77,7 +74,6 @@ class UserService{
         }
     }
     
-<<<<<<< HEAD
     func updateProfileImage(forUser user: User, image: UIImage, completion: @escaping(String?, Error?) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -106,7 +102,6 @@ class UserService{
     
     func saveUserData(user: User, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
         let data: [String: Any] = ["email": user.email,
                                    "fullname": user.fullname,
                                    "profileImageUrl": user.profileImage,
@@ -115,7 +110,4 @@ class UserService{
         
         FirebaseReference.getReference(.User).document(uid).setData(data, completion: completion)
     }
-    
-=======
->>>>>>> main
 }
