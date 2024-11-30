@@ -14,9 +14,15 @@ struct User {
     var profileImage: String
     var username: String
 =======
+<<<<<<< HEAD
+    var fullname: String
+    var profileImage: String
+    var username: String
+=======
     let fullname: String
     let profileImage: String
     let username: String
+>>>>>>> main
 >>>>>>> main
     let uid: String
     

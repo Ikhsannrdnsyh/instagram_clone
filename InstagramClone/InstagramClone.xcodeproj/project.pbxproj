@@ -18,16 +18,23 @@
 		01317DCF2CC6AFDC004DFCD7 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01317DCE2CC6AFDC004DFCD7 /* UserCellViewModel.swift */; };
 		0178183C2CF38420007B17B8 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178183B2CF38420007B17B8 /* NotificationViewModel.swift */; };
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 		0178183E2CF61ED9007B17B8 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178183D2CF61ED9007B17B8 /* EditProfileController.swift */; };
 		017818402CF62067007B17B8 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178183F2CF62067007B17B8 /* EditProfileCell.swift */; };
 		017818422CF620A0007B17B8 /* EditProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017818412CF620A0007B17B8 /* EditProfileHeader.swift */; };
 		017818442CF620CB007B17B8 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017818432CF620CB007B17B8 /* EditProfileViewModel.swift */; };
+<<<<<<< HEAD
+		017818472CF62588007B17B8 /* ModelInitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017818462CF62588007B17B8 /* ModelInitTest.swift */; };
+=======
 <<<<<<< HEAD
 =======
 >>>>>>> main
 =======
 		017818472CF62588007B17B8 /* ModelInitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017818462CF62588007B17B8 /* ModelInitTest.swift */; };
 >>>>>>> 8a500a3aab1df8e4d96e1fbbeffae2ed7fe57fdd
+>>>>>>> main
 		019E0C972CE1DB8C00548266 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019E0C962CE1DB8C00548266 /* CommentController.swift */; };
 		019E0C992CE1DC8D00548266 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019E0C982CE1DC8D00548266 /* CommentCell.swift */; };
 		019E0C9B2CE1E1A100548266 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019E0C9A2CE1E1A100548266 /* Comment.swift */; };
@@ -87,16 +94,23 @@
 		01317DCE2CC6AFDC004DFCD7 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		0178183B2CF38420007B17B8 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 		0178183D2CF61ED9007B17B8 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
 		0178183F2CF62067007B17B8 /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
 		017818412CF620A0007B17B8 /* EditProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeader.swift; sourceTree = "<group>"; };
 		017818432CF620CB007B17B8 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		017818462CF62588007B17B8 /* ModelInitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInitTest.swift; sourceTree = "<group>"; };
+=======
 <<<<<<< HEAD
 =======
 >>>>>>> main
 =======
 		017818462CF62588007B17B8 /* ModelInitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInitTest.swift; sourceTree = "<group>"; };
 >>>>>>> 8a500a3aab1df8e4d96e1fbbeffae2ed7fe57fdd
+>>>>>>> main
 		019E0C962CE1DB8C00548266 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		019E0C982CE1DC8D00548266 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		019E0C9A2CE1E1A100548266 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -176,6 +190,11 @@
 				0178183F2CF62067007B17B8 /* EditProfileCell.swift */,
 				017818412CF620A0007B17B8 /* EditProfileHeader.swift */,
 =======
+<<<<<<< HEAD
+				0178183F2CF62067007B17B8 /* EditProfileCell.swift */,
+				017818412CF620A0007B17B8 /* EditProfileHeader.swift */,
+=======
+>>>>>>> main
 >>>>>>> main
 			);
 			path = Profile;
@@ -220,6 +239,10 @@
 <<<<<<< HEAD
 				0178183D2CF61ED9007B17B8 /* EditProfileController.swift */,
 =======
+<<<<<<< HEAD
+				0178183D2CF61ED9007B17B8 /* EditProfileController.swift */,
+=======
+>>>>>>> main
 >>>>>>> main
 			);
 			path = Controller;
@@ -272,6 +295,10 @@
 <<<<<<< HEAD
 				017818432CF620CB007B17B8 /* EditProfileViewModel.swift */,
 =======
+<<<<<<< HEAD
+				017818432CF620CB007B17B8 /* EditProfileViewModel.swift */,
+=======
+>>>>>>> main
 >>>>>>> main
 			);
 			path = ViewModel;
@@ -538,6 +565,10 @@
 <<<<<<< HEAD
 				017818402CF62067007B17B8 /* EditProfileCell.swift in Sources */,
 =======
+<<<<<<< HEAD
+				017818402CF62067007B17B8 /* EditProfileCell.swift in Sources */,
+=======
+>>>>>>> main
 >>>>>>> main
 				01FC943E2CD9E8AE003CC6EA /* UploadPostController.swift in Sources */,
 				019E0C972CE1DB8C00548266 /* CommentController.swift in Sources */,
@@ -549,6 +580,10 @@
 <<<<<<< HEAD
 				017818422CF620A0007B17B8 /* EditProfileHeader.swift in Sources */,
 =======
+<<<<<<< HEAD
+				017818422CF620A0007B17B8 /* EditProfileHeader.swift in Sources */,
+=======
+>>>>>>> main
 >>>>>>> main
 				01D2B58B2CC54F8C006C6B63 /* StringUtil.swift in Sources */,
 				01317DC72CC689DA004DFCD7 /* User.swift in Sources */,
@@ -559,6 +594,10 @@
 <<<<<<< HEAD
 				0178183E2CF61ED9007B17B8 /* EditProfileController.swift in Sources */,
 =======
+<<<<<<< HEAD
+				0178183E2CF61ED9007B17B8 /* EditProfileController.swift in Sources */,
+=======
+>>>>>>> main
 >>>>>>> main
 				01317DC92CC68D0A004DFCD7 /* ProfileHeaderViewModel.swift in Sources */,
 				019E0C9D2CE1E30100548266 /* CustomInputAccesoryView.swift in Sources */,
@@ -579,6 +618,10 @@
 <<<<<<< HEAD
 				017818442CF620CB007B17B8 /* EditProfileViewModel.swift in Sources */,
 =======
+<<<<<<< HEAD
+				017818442CF620CB007B17B8 /* EditProfileViewModel.swift in Sources */,
+=======
+>>>>>>> main
 >>>>>>> main
 				01D2B5852CC537A1006C6B63 /* ImageUploaderService.swift in Sources */,
 				01D2B5872CC53944006C6B63 /* AuthService.swift in Sources */,
